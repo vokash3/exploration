@@ -4,4 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 import ru.wain.exploration.db.entities.BookEntity;
 
 public interface BookRepository extends CrudRepository<BookEntity, Long> {
+    Iterable<BookEntity> findAllByAuthorContaining(String author);
 }

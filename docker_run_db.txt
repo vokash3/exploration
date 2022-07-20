@@ -1,0 +1,9 @@
+# Загрузка образа
+docker pull postgres:12-alpine
+
+# Запуск контейнера
+docker run -d -p 5432:5432 --name db
+    -e POSTGRES_USER=admin
+    -e POSTGRES_PASSWORD=password
+    -e POSTGRES_DB=demo
+    postgres:12-alpine

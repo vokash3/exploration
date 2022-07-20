@@ -41,6 +41,14 @@ public class DefaultBookService implements BookService{
         bookRepository.save(bookEntity);
     }
 
+    @Override
+    public List<Book> findByAuthor(String author) {
+        List<Book> books = new ArrayList<>();
+        bookRepository.findAllByAuthorContaining(author).forEach(bookEntity -> books.add(mapper.bookEntityToBook(bookEntity)));
+        return books;
+    }
+
+
     private class BookNotFoundException extends Exception{
         public BookNotFoundException(String message) {
             super(message);
